@@ -1,0 +1,24 @@
+<div id="newsletterForm" hidden="@ShowNewsLetterForm">
+    <input type="text" @bind="Email" placeholder="Din e-post adresse..." />
+    <button>Submit</button>
+</div>
+
+<div id="newsletter">
+    <span onclick="@ToogleNewsletter()">Meld deg på nyhetsbrevet</span>
+</div>
+
+@code {
+    private bool ShowNewsLetterForm = false;
+    private string Email = string.Empty;
+
+    private Task Submit()
+    {
+        return Task.CompletedTask;
+    }
+
+    private Task ToogleNewsletter()
+    {
+        ShowNewsLetterForm = !ShowNewsLetterForm;
+        return Task.CompletedTask;
+    }
+}
