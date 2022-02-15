@@ -8,13 +8,10 @@
     <span id="seconds">@timer.Seconds</span>
 </div>
 
-<NewsletterComponent />
-
 @code {
     [Parameter]
     public DateTime EndDate { get; set; }
     private static System.Timers.Timer aTimer;
-    //private DateTime endDate = new DateTime(2022, 2, 17, 12, 00, 00);
     private TimeSpan timer;
 
     protected override Task OnInitializedAsync()
