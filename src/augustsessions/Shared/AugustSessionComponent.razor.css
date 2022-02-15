@@ -1,0 +1,80 @@
+@media (min-width: 1080px) {
+    main#augustsession {
+        width: 100%;
+        height: 100%;
+        background-image: url('images/bg-desktop.png');
+        background-size: cover;
+    }
+}
+
+@media (max-width: 1080px) {
+    main#augustsession {
+        width: 100%;
+        height: 100%;
+        background-image: url('images/bg-mobile.png');
+        background-size: cover;
+    }
+}
+
+.wrapper {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 5%;
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.buyTicketHere {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.lineup {
+    width: 100%;
+    margin-bottom: 1%;
+}
+
+@media (min-width: 1080px) {
+    img.aslogo {
+        width: 50%;
+    }
+}
+
+@media (max-width: 1080px) {
+    img.aslogo {
+        width: 90%;
+    }
+}
+
+img.imgLineup {
+    width: 100%;
+    margin-top: 5%;
+}
+
+img.asBuyTicketHere {
+    width: 200px;
+    margin-bottom: 10%;
+}
+
+img.logoPartner {
+    width: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}

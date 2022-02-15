@@ -2,39 +2,16 @@
 
 <PageTitle>August Sessions</PageTitle>
 
-<div id="counter">
-    <span id="days">@timer.Days</span>
-    <span id="hours">@timer.Hours</span>
-    <span id="minutes">@timer.Minutes</span>
-    <span id="seconds">@timer.Seconds</span>
-</div>
+@if(!IsActive)
+{
+    <CountDownTimer EndDate="@(new DateTime(2022,2,18,10,0,0))" />
+}
+
+@if(IsActive)
+{
+    <AugustSessionComponent />
+}
 
 @code {
-    private static System.Timers.Timer aTimer;
-    private DateTime endDate = new DateTime(2022, 2, 17, 12, 00, 00);
-    private TimeSpan timer;
-
-    protected override Task OnInitializedAsync()
-    {
-        Countdown();
-        return base.OnInitializedAsync();
-    }
-
-    Task Countdown()
-    {
-        aTimer = new System.Timers.Timer(1000);
-        aTimer.Interval = 500;
-        //aTimer.Tick +=new EventHandler(t_Tick);
-        timer = endDate.Subtract(DateTime.Now);
-        aTimer.Elapsed += CountDownTimer;
-        //label1.Text = ts.ToString("d' Days 'h' Hours 'm' Minutes 's' Seconds'");
-        aTimer.Start();
-        return Task.CompletedTask;
-    }
-
-    public void CountDownTimer(Object source, System.Timers.ElapsedEventArgs e)
-    {
-        timer = endDate.Subtract(DateTime.Now);
-        StateHasChanged();
-    }
+    private bool IsActive = (new DateTime(2022,2,18,10,0,0)) <= DateTime.Now;
 }

@@ -1,0 +1,42 @@
+@inherits LayoutComponentBase
+@inject NavigationManager uriHelper;
+
+<div id="counter">
+    <span id="days">@timer.Days</span>
+    <span id="hours">@timer.Hours</span>
+    <span id="minutes">@timer.Minutes</span>
+    <span id="seconds">@timer.Seconds</span>
+</div>
+
+@code {
+    [Parameter]
+    public DateTime EndDate { get; set; }
+    private static System.Timers.Timer aTimer;
+    private TimeSpan timer;
+
+    protected override Task OnInitializedAsync()
+    {
+        Countdown();
+        return base.OnInitializedAsync();
+    }
+
+    Task Countdown()
+    {
+        aTimer = new System.Timers.Timer(1000);
+        aTimer.Interval = 500;
+        timer = EndDate.Subtract(DateTime.Now);
+        aTimer.Elapsed += CountDownTimerEvent;
+        aTimer.Start();
+        return Task.CompletedTask;
+    }
+
+    public void CountDownTimerEvent(Object source, System.Timers.ElapsedEventArgs e)
+    {
+        if(timer.TotalSeconds <= 0)
+        {
+            uriHelper.NavigateTo(uriHelper.BaseUri, forceLoad: true);
+        }
+        timer = EndDate.Subtract(DateTime.Now);
+        StateHasChanged();
+    }
+}
