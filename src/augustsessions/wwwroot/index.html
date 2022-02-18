@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="ARTISTER AUGUST SESSIONS: Admiral P, Sol Heilo, Unni Wilhelmsen, Chris Holsten, Ulf Lundell, Freddy Kalas, TIX (familie-konsert dagtid og kveldskonsert), Cover Me – a Tribute to Bruce Springsteen, Janove m/Band, Pulse of Floyd, Rotlaus og Strandingarna." />
     <meta property="og:site_name" content="Beitostølen Live" />
@@ -48,6 +49,21 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/sw.js', { scope: '/' })
+                .then(() => {
+                    console.info('Augist Sessions');
+                }, err => console.error("August Sessions Worker registration failed: ", err));
+
+            navigator.serviceWorker
+                .ready
+                .then(() => {
+                    console.info('August Sessions Worker Ready');
+                });
+        }
+    </script>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>
 
