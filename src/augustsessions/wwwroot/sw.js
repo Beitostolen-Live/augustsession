@@ -1,4 +1,4 @@
-const CACHE_VERSION = 1.0;
+const CACHE_VERSION = 1.1;
 
 const MAX_TTL = {
     '/': 60,
